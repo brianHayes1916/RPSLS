@@ -8,16 +8,12 @@ namespace RPSLS
 {
     class Game
     {
-        public Player playerOne;
-        public Player playerTwo;
         public List<string> gestures;
 
         //constructor
 
-        public Game(Player pOne, Player pTwo)
+        public Game()
         {
-            playerOne = pOne;
-            playerTwo = pTwo;
             gestures = new List<string>();
             gestures.Add("Rock");
             gestures.Add("Paper");
