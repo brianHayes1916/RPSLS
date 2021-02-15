@@ -45,19 +45,31 @@ namespace RPSLS
 
         public void ChooseGameType()
         {
-            Console.WriteLine("Please enter 1 if this is a multiplayer game or 2 if this is a single player.");
-            string typeChoice = Console.ReadLine();
-            if(typeChoice == "1")
+            bool looper = false;
+            while(looper == false)
             {
-                pOne = new Human();
-                pTwo = new Human();
+
+            
+                Console.WriteLine("Please enter 1 if this is a multiplayer game or 2 if this is a single player.");
+                string typeChoice = Console.ReadLine();
+                if(typeChoice == "1")
+                {
+                    pOne = new Human(null);
+                    pTwo = new Human(null);
+                    looper = true;
+                }
+                else if(typeChoice == "2")
+                {
+                    pOne = new Human(null);
+                    pTwo = new AI(null);
+                    looper = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid response please try again.");
+                    looper = false;
+                }
             }
-            else
-            {
-                pOne = new Human();
-                pTwo = new AI();
-            }
-            // assign name method goes here
         }
 
         public void GiveNames()

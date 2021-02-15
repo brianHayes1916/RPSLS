@@ -13,7 +13,7 @@ namespace RPSLS
         public override void ChooseGesture(List<string> gestures)
         {
             Random random = new Random();
-            int rndHold = random.Next(6);
+            int rndHold = random.Next(5);
             chosenValue = gestures[rndHold];
         }
 
