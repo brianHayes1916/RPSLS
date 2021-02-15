@@ -9,6 +9,8 @@ namespace RPSLS
     class Game
     {
         public List<string> gestures;
+        public Player pOne;
+        public Player pTwo;
 
         //constructor
 
@@ -41,7 +43,95 @@ namespace RPSLS
             Console.WriteLine("Spock vaporizes Rock");
         }
 
+        public void ChooseGameType()
+        {
+            Console.WriteLine("Please enter 1 if this is a multiplayer game or 2 if this is a single player.");
+            string typeChoice = Console.ReadLine();
+            if(typeChoice == "1")
+            {
+                pOne = new Human();
+                pTwo = new Human();
+            }
+            else
+            {
+                pOne = new Human();
+                pTwo = new AI();
+            }
+            // assign name method goes here
+        }
 
+        public void GiveNames()
+        {
+            Console.WriteLine("Please give a name to player one.");
+            pOne.name = Console.ReadLine();
+            Console.WriteLine("Please give a name to playter two.");
+            pTwo.name = Console.ReadLine();
+        }
         
+        // compair the chosen gestures 
+        //should I make a method for each choice and in every choice have the chosen gestures it can beat 
+        //or should I make the biggest if else then cut it up
+
+        public void Compair(Player pOne, Player pTwo)
+        {
+            string choiceOne = pOne.chosenValue;
+            string choiceTwo = pTwo.chosenValue;
+            if(choiceOne == "Rock")
+            {
+                if (choiceTwo == "Paper" || choiceTwo == "Spock")
+                {
+                    pTwo.score++;
+                }
+                else
+                {
+                    pOne.score++;
+                }
+            }
+            else if(choiceOne == "Paper")
+            {
+                if(choiceTwo == "Scissors" || choiceTwo == "Lizard")
+                {
+                    pTwo.score++;
+                }
+                else
+                {
+                    pOne.score++;
+                }
+            }
+            else if(choiceOne == "Scissors")
+            {
+                if(choiceTwo == "Rock" || choiceTwo == "Spock")
+                {
+                    pTwo.score++;
+                }
+                else
+                {
+                    pOne.score++;
+                }
+            }
+            else if(choiceOne == "Lizard")
+            {
+                if(choiceTwo == "Scissors" || choiceTwo == "Rock")
+                {
+                    pTwo.score++;
+                }
+                else
+                {
+                    pOne.score++;
+                }
+            }
+            else
+            {
+                if(choiceTwo == "Paper" || choiceTwo == "Lizard")
+                {
+                    pTwo.score++;
+                }
+                else
+                {
+                    pOne.score++;
+                }
+            }
+        }
+
     }
 }
