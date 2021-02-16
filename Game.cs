@@ -80,6 +80,24 @@ namespace RPSLS
             pTwo.name = Console.ReadLine();
         }
         
+        public void DisplayScore()
+        {
+            Console.WriteLine($"{pOne.name} has a score of {pOne.score}!");
+            Console.WriteLine($"{pTwo.name} has a score of {pTwo.score}!");
+        }
+
+        public void DisplayWinner()
+        {
+            if(pOne.score >= 3)
+            {
+                Console.WriteLine($"{pOne.name} wins!");
+            }
+            else
+            {
+                Console.WriteLine($"{pTwo.name} wins!");
+            }
+        }
+
         // compair the chosen gestures 
         //should I make a method for each choice and in every choice have the chosen gestures it can beat 
         //or should I make the biggest if else then cut it up
@@ -145,5 +163,19 @@ namespace RPSLS
             }
         }
 
+        public void FullGame()
+        {
+            Welcome();
+            ChooseGameType();
+            GiveNames();
+            while(pOne.score < 3 && pTwo.score < 3)
+            {
+                pOne.ChooseGesture(gestures);
+                pTwo.ChooseGesture(gestures);
+                Compair(pOne, pTwo);
+                DisplayScore();
+            }
+            DisplayWinner();
+        }
     }
 }

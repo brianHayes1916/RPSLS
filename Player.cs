@@ -20,7 +20,6 @@ namespace RPSLS
             score = 0;
         }
 
-        //put this bad boy in a while loop until chosenValue is a valid choice
         public virtual void ChooseGesture(List<string> gestures)
         {
             bool goodChoice = false;
